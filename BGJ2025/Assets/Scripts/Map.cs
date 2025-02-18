@@ -10,8 +10,8 @@ public class Map : MonoBehaviour
     [SerializeField] private Button mapButton;
     private bool isMapOpen = false;
 
-    private Vector2 hiddenPos = new Vector2(-415, -600); // Adjust for your UI layout
-    private Vector2 visiblePos = new Vector2(-415, 276); // Adjust based on the UI
+    [SerializeField] private Vector2 hiddenPos = new Vector2(-415, -600); // Adjust for your UI layout
+    [SerializeField] private Vector2 visiblePos = new Vector2(-415, 276); // Adjust based on the UI
     private Coroutine currentAnimation;
 
     void Start()
