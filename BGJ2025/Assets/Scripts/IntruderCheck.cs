@@ -3,9 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class IntruderCheck : MonoBehaviour {
     public int currentRoom;
+    private AudioSource audioSource;
+    public AudioClip scare; // The scare sound effect
 
     void Start() {
         currentRoom = SceneManager.GetActiveScene().buildIndex;
+        audioSource = GetComponent<AudioSource>();
+
+        // Load the sound file from Resources
+        scare = Resources.Load<AudioClip>("Audio/scare");
+
+        if (scare == null) {
+            Debug.LogError("Failed to load AudioClip from Resources! Ensure 'Assets/Resources/Audio/scare.wav' exists.");
+        } else {
+            Debug.Log("AudioClip successfully loaded: " + scare.name);
+        }
+
         CheckForIntruders();
     }
 
@@ -14,18 +27,28 @@ public class IntruderCheck : MonoBehaviour {
             if (intruder.Value == currentRoom) {
                 Debug.Log($"{intruder.Key} is in the same room! Game Over?");
 
-                // Find the parent object by name
+                // Find the intruder GameObject
                 GameObject intruderObject = GameObject.Find(intruder.Key);
-
-                // Get the SpriteToggle component from the child
-                SpriteToggle spriteToggle = intruderObject.GetComponent<SpriteToggle>();
-                if (spriteToggle == null) {
-                    Debug.LogError($"SpriteToggle component is missing on the 'Crush'!");
+                if (intruderObject == null) {
+                    Debug.LogError($"Intruder '{intruder.Key}' not found!");
                     continue;
                 }
 
-                // Show the sprite
+                // Get and show the SpriteToggle component
+                SpriteToggle spriteToggle = intruderObject.GetComponent<SpriteToggle>();
+                if (spriteToggle == null) {
+                    Debug.LogError($"SpriteToggle component is missing on '{intruder.Key}'!");
+                    continue;
+                }
                 spriteToggle.ShowSprite();
+
+                // Play scare sound
+                if (audioSource != null && scare != null) {
+                    audioSource.PlayOneShot(scare);
+                    Debug.Log("Scare sound playing!");
+                } else {
+                    Debug.LogError("AudioSource or AudioClip is missing!");
+                }
             }
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class IntruderManager : MonoBehaviour {
     public static IntruderManager Instance;
-    public Dictionary<string, int> intruderLocations = new Dictionary<string, int>(); // Track where monsters are
+    public Dictionary<string, int> intruderLocations = new Dictionary<string, int>(); // Tracks intruder positions
 
     private void Awake() {
         if (Instance == null) {
