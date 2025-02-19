@@ -7,19 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class StartButton : MonoBehaviour
 {
-    [SerializeField] private Button mapButton;
+    [SerializeField] private Button startButton;
     [SerializeField] private Animator transition;
     [SerializeField] private int newRoom;
     [SerializeField] private float transitionTime = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (mapButton != null)
-            mapButton.onClick.AddListener(ToggleMap);
+        PlayerPrefs.DeleteKey("HorrorMode");
+        PlayerPrefs.Save();
+        if (startButton != null)
+            startButton.onClick.AddListener(StartGame);
+        
     }
 
 
-    void ToggleMap()
+    void StartGame()
     {
         StartCoroutine(LoadRoom(newRoom)); ;
     }

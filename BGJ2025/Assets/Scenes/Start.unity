@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c1f2efa50a26f4e84de459eba48ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapButton: {fileID: 738824753}
+  startButton: {fileID: 738824753}
   transition: {fileID: 512180884}
   newRoom: 0
   transitionTime: 1
