@@ -10,7 +10,7 @@ public class HoverTextDisplay : MonoBehaviour {
     }
 
     void OnMouseEnter() {
-        hoverText.text = "This is " + gameObject.name;
+        hoverText.text = gameObject.name;
         hoverText.transform.position = Camera.main.WorldToScreenPoint(transform.position + textOffset);
         hoverText.gameObject.SetActive(true);
     }
