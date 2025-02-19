@@ -14,7 +14,7 @@ public class IntruderManager : MonoBehaviour {
         }
     }
 
-    public void UpdateMonsterLocation(string intruderName, int newRoom) {
+    public void UpdateIntruderLocation(string intruderName, int newRoom) {
         if (intruderLocations.ContainsKey(intruderName))
             intruderLocations[intruderName] = newRoom;
         else
