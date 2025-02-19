@@ -681,7 +681,7 @@ GameObject:
   - component: {fileID: 884582615}
   - component: {fileID: 884582614}
   m_Layer: 0
-  m_Name: Door
+  m_Name: LivingRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,7 +712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transition: {fileID: 881559465}
-  newRoom: 0
+  newRoom: 3
   transitionTime: 1
 --- !u!64 &884582616
 MeshCollider:
