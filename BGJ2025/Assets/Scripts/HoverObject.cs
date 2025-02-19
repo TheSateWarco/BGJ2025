@@ -9,7 +9,7 @@ public class HoverObject : MonoBehaviour {
     }
 
     void OnMouseEnter() {
-        hoverManager.ShowHoverText(transform, "This is " + gameObject.name);
+        hoverManager.ShowHoverText(transform, gameObject.name);
     }
 
     void OnMouseExit() {
