@@ -409,6 +409,7 @@
 "Assets/Scripts/LookAround.cs"
 "Assets/Scripts/Map.cs"
 "Assets/Scripts/OnClick.cs"
+"Assets/Scripts/SpriteToggle.cs"
 -langversion:9.0
 /deterministic
 /optimize+
