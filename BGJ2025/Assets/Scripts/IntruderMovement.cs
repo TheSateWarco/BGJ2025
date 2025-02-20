@@ -7,18 +7,12 @@ public class IntruderMovement : MonoBehaviour {
     public int movementLevel = 15;
     private float moveTimer = 5f;
     public bool horror = false;
-    public HashSet<int> occupiedRooms;
-
-
 
     void Awake() {
-        // Force horror mode off if it doesn't exist
         if (!PlayerPrefs.HasKey("HorrorMode")) {
             PlayerPrefs.SetInt("HorrorMode", 0);
             PlayerPrefs.Save();
         }
-
-        // Correct way to load horror mode state
         horror = PlayerPrefs.GetInt("HorrorMode") == 1;
     }
 
@@ -30,7 +24,7 @@ public class IntruderMovement : MonoBehaviour {
         while (true) {
             yield return new WaitForSeconds(moveTimer);
             int roll = Random.Range(1, 21);
-            Debug.Log($"Intruder is moving. Horror mode: {horror}");
+            Debug.Log($"Intruder {intruderName} is moving. Horror mode: {horror}");
 
             if (roll <= movementLevel && horror) {
                 MoveToNewLocation();
@@ -39,13 +33,21 @@ public class IntruderMovement : MonoBehaviour {
     }
 
     void MoveToNewLocation() {
-        HashSet<int> occupiedRooms = new HashSet<int>(IntruderManager.Instance.intruderLocations.Values);
+        HashSet<int> occupiedRooms = IntruderManager.Instance.GetOccupiedRooms(); // Get all occupied rooms
 
         int newLocation;
-        do
-        {
+        int attempts = 10; // Prevent infinite loops
+
+        do {
             newLocation = Random.Range(0, 7); // Pick a random room
-        } while (occupiedRooms.Contains(newLocation)); // Ensure it's not occupied
+            attempts--;
+        } while (occupiedRooms.Contains(newLocation) && attempts > 0); // Ensure it's unoccupied
+
+        // If no valid room was found after 10 tries, just stay in place
+        if (attempts == 0) {
+            Debug.LogWarning($"{intruderName} could not find an empty room!");
+            return;
+        }
 
         // Update the intruder's location
         IntruderManager.Instance.UpdateIntruderLocation(intruderName, newLocation);

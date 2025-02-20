@@ -3,42 +3,38 @@ using UnityEngine;
 public class HoverExit : MonoBehaviour {
     private HoverManager hoverManager;
     private ChangeRooms changeRooms;
-    private IntruderMovement intruderMovement;
     private AudioSource audioSource;
     public AudioClip footSteps;
 
-    void Start()
-    {
+    void Start() {
         hoverManager = FindFirstObjectByType<HoverManager>();
         changeRooms = FindFirstObjectByType<ChangeRooms>();
-        intruderMovement = FindFirstObjectByType<IntruderMovement>(); //  Assign IntruderMovement
         audioSource = GetComponent<AudioSource>();
 
         footSteps = Resources.Load<AudioClip>("Audio/footSteps");
-        if (footSteps == null)
-        {
+        if (footSteps == null) {
             Debug.LogError("Failed to load AudioClip from Resources! Ensure 'Assets/Resources/Audio/footSteps.wav' exists.");
-        }
-        else
-        {
+        } else {
             Debug.Log("AudioClip successfully loaded: " + footSteps.name);
         }
     }
 
-    void OnMouseEnter()
-    {
+    void OnMouseEnter() {
         hoverManager.ShowHoverText(transform, gameObject.name);
 
-        if (intruderMovement == null || changeRooms == null)
-        {
-            Debug.LogError("intruderMovement or changeRooms is null! Cannot check occupiedRooms.");
+        if (changeRooms == null) {
+            Debug.LogError("ChangeRooms is null! Cannot check occupiedRooms.");
             return;
         }
 
-        if (intruderMovement.occupiedRooms.Contains(changeRooms.newRoom))
-        {
-            audioSource.PlayOneShot(footSteps);
-            Debug.Log("Footsteps should be playing");
+        // Get occupied rooms from IntruderManager
+        if (IntruderManager.Instance.GetOccupiedRooms().Contains(changeRooms.newRoom)) {
+            if (audioSource != null && footSteps != null) {
+                audioSource.PlayOneShot(footSteps);
+                Debug.Log("Footsteps should be playing");
+            } else {
+                Debug.LogError("AudioSource or footSteps clip is missing!");
+            }
         }
     }
 
