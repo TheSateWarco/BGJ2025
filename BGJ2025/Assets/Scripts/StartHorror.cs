@@ -2,26 +2,38 @@ using UnityEngine;
 
 public class StartHorror : MonoBehaviour
 {
-    private IntruderMovement intruderMovement;
+    private IntruderMovement[] intruders;
 
     void Start()
     {
-        intruderMovement = Object.FindFirstObjectByType<IntruderMovement>(); // Ensure it's assigned
+        intruders = Object.FindObjectsByType<IntruderMovement>(FindObjectsSortMode.None);
 
-        if (intruderMovement == null)
+        if (intruders.Length == 0)
         {
-            Debug.LogError("IntruderMovement script not found in the scene!");
+            Debug.LogError("No IntruderMovement objects found in the scene!");
         }
     }
 
     void OnMouseDown()
     {
-        if (!intruderMovement.horror)
+        Debug.Log("Clicked on: " + gameObject.name);
+
+        if (intruders.Length == 0)
         {
-            intruderMovement.horror = true;
-            PlayerPrefs.SetInt("HorrorMode", 1); // Save state
-            PlayerPrefs.Save();
+            Debug.LogError("intruderMovement list is empty!");
+            return;
+        }
+
+        // Set horror to true for all intruders
+        foreach (var intruder in intruders)
+        {
+            if (!intruder.horror)
+            {
+                intruder.horror = true;
+                PlayerPrefs.SetInt("HorrorMode", 1); // Save state
+                PlayerPrefs.Save();
+                Debug.Log($"Horror mode activated for {intruder.name}!");
+            }
         }
     }
-
 }

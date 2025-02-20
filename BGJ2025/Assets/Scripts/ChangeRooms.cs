@@ -8,7 +8,7 @@ using UnityEditorInternal;
 public class ChangeRooms : MonoBehaviour
 {
     [SerializeField] private Animator transition;
-    [SerializeField] private int newRoom;
+    public int newRoom;
     [SerializeField] private float transitionTime = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
