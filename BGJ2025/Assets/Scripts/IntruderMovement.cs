@@ -1,11 +1,15 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class IntruderMovement : MonoBehaviour {
     public string intruderName;
     public int movementLevel = 15;
     private float moveTimer = 5f;
     public bool horror = false;
+    public HashSet<int> occupiedRooms;
+
+
 
     void Awake() {
         // Force horror mode off if it doesn't exist
@@ -35,7 +39,15 @@ public class IntruderMovement : MonoBehaviour {
     }
 
     void MoveToNewLocation() {
-        int newLocation = Random.Range(0, 7);
+        HashSet<int> occupiedRooms = new HashSet<int>(IntruderManager.Instance.intruderLocations.Values);
+
+        int newLocation;
+        do
+        {
+            newLocation = Random.Range(0, 7); // Pick a random room
+        } while (occupiedRooms.Contains(newLocation)); // Ensure it's not occupied
+
+        // Update the intruder's location
         IntruderManager.Instance.UpdateIntruderLocation(intruderName, newLocation);
         Debug.Log($"{intruderName} moved to room {newLocation}");
     }
