@@ -1360,6 +1360,7 @@ GameObject:
   - component: {fileID: 1465944890}
   - component: {fileID: 1465944889}
   - component: {fileID: 1465944894}
+  - component: {fileID: 1465944895}
   m_Layer: 0
   m_Name: Mirror
   m_TagString: Untagged
@@ -1480,6 +1481,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80085fb54291ec44ba1dcd638d05731d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1465944895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465944887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccfb0c88f3f9c36479d1e9440d76aff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 7720806529157719761, guid: a5f82ab06cd7cbf42889ec512c918938, type: 3}
+  roomIndex: 5
 --- !u!1 &1658453612
 GameObject:
   m_ObjectHideFlags: 0
