@@ -19,6 +19,8 @@ public class ChangeRooms : MonoBehaviour
         }
     }
     void OnMouseDown() {
+        Debug.Log("ChangeRooms script status: " + this.enabled);
+
         Debug.Log("Clicked on: " + gameObject.name);
         StartCoroutine(LoadRoom(newRoom)); ;
     }
