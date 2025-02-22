@@ -5,6 +5,7 @@ public class IntruderCheck : MonoBehaviour {
     public int currentRoom;
     private AudioSource audioSource;
     public AudioClip scare; // The scare sound effect
+    public AudioClip heartbeat;
 
     void Start() {
         currentRoom = SceneManager.GetActiveScene().buildIndex;
@@ -12,6 +13,7 @@ public class IntruderCheck : MonoBehaviour {
 
         // Load the sound file from Resources
         scare = Resources.Load<AudioClip>("Audio/scare");
+        heartbeat = Resources.Load<AudioClip>("Audio/heartbeat");
 
         if (scare == null) {
             Debug.LogError("Failed to load AudioClip from Resources! Ensure 'Assets/Resources/Audio/scare.wav' exists.");
@@ -44,7 +46,8 @@ public class IntruderCheck : MonoBehaviour {
 
                 // Play scare sound
                 if (audioSource != null && scare != null) {
-                    audioSource.PlayOneShot(scare);
+                    audioSource.PlayOneShot(scare); 
+                    audioSource.PlayOneShot(heartbeat);
                     Debug.Log("Scare sound playing!");
                 } else {
                     Debug.LogError("AudioSource or AudioClip is missing!");

@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 9b031b61a0b1b9c418d649d3aa4bad68
+  - enabled: 1
+    path: Assets/Scenes/EndSurvive.unity
+    guid: 68b74d0c0377d8c47bd048a464ee1051
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

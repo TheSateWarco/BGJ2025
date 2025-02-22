@@ -401,6 +401,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.38f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.38f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/ChangeRooms.cs"
+"Assets/Scripts/EndDoor.cs"
 "Assets/Scripts/HoverExit.cs"
 "Assets/Scripts/HoverManager.cs"
 "Assets/Scripts/HoverObject.cs"
