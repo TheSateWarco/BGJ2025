@@ -8,8 +8,8 @@ public class KeyItem : InventoryItem {
 public override void Use() {
         Debug.Log("Key " + doorID + " is being used!");
 
-        Door[] doors = FindObjectsByType<Door>(FindObjectsSortMode.None);
-        foreach (Door door in doors) {
+        UnlockDoor[] doors = FindObjectsByType<UnlockDoor>(FindObjectsSortMode.None);
+        foreach (UnlockDoor door in doors) {
             if (door.doorID == doorID) {
                 if (!door.isLocked) {
                     Debug.Log("Door " + doorID + " is already unlocked!");

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Door : MonoBehaviour {
+public class UnlockDoor : MonoBehaviour {
     public string doorID; // Unique identifier for each door
     public bool isLocked = true;
     public GameObject door;
@@ -20,7 +20,7 @@ public class Door : MonoBehaviour {
 
 
     void OnMouseDown() {
-        Door door = GetComponent<Door>();
+        UnlockDoor door = GetComponent<UnlockDoor>();
 
         if (door != null && door.isLocked) {
             Debug.Log(" The door is locked! Transition blocked. Door Locked Status: " + door.isLocked);
@@ -33,18 +33,38 @@ public class Door : MonoBehaviour {
 
 
     public void Unlock() {
-        if (!isLocked) return; //  Stop if already unlocked
+        if (!isLocked) return; // Stop if already unlocked
 
         isLocked = false;
         Debug.Log("Door Unlocked!");
 
-        if (door != null) {
-            if (door != null) {
-                //Collider col = GetComponent<Collider>();
-                //if (col != null) col.enabled = true;
-            }
+
+        // OPTIONAL: Change the door color to indicate it's unlocked
+        Renderer doorRenderer = GetComponent<Renderer>();
+        if (doorRenderer != null) {
+            doorRenderer.material.color = Color.green;  // Change door color to green
+
+        }
+    }
+    public void OpenDoor() {
+        Debug.Log("Key " + doorID + " is being used!");
+
+        UnlockDoor[] doors = FindObjectsByType<UnlockDoor>(FindObjectsSortMode.None);
+        foreach (UnlockDoor door in doors) {
+            if (door.doorID == doorID) {
+                if (!door.isLocked) {
+                    Debug.Log("Door " + doorID + " is already unlocked!");
+                    return;
+                }
+
+                door.Unlock();
+                Debug.Log("Key used on door: " + doorID);
+                return;
             }
         }
+
+        Debug.Log("No matching door found for key: " + doorID);
+    }
     }
 
 

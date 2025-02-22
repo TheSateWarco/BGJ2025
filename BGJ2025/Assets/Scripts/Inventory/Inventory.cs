@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour {
     public static HashSet<string> collectedItemIDs = new HashSet<string>(); // Track collected items
     public UnityEngine.UI.Image heldItemSlot; // Assign in Inspector
     public UnityEngine.UI.Button buttonObject;
-    public KeyItem keyScript;
+    public UnlockDoor unlockDoor;
     public ActivateButton activateButton;
 
     private InventoryItem heldItem;
@@ -179,17 +179,14 @@ public class Inventory : MonoBehaviour {
         switch (item.itemName) {
             case "testKey":
                 Debug.Log("Adding OpenDoor to button!");
-                buttonObject.onClick.AddListener(OpenDoor);
+                UnlockDoor unlockDoor = Object.FindFirstObjectByType<UnlockDoor>();
+                buttonObject.onClick.AddListener(unlockDoor.OpenDoor);
                 break;
             case "block":
                 Debug.Log("Adding Block Action to button!");
                 buttonObject.onClick.AddListener(() => Debug.Log("Block used!"));
                 break;
         }
-    
-}
 
-    private void OpenDoor() {
-        Debug.Log("You Opened Front Door");
     }
 }
