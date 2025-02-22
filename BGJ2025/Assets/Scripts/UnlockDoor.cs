@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using UnityEditorInternal;
+
 
 public class UnlockDoor : MonoBehaviour {
     public string doorID; // Unique identifier for each door

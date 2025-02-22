@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2490525827257875681}
   - component: {fileID: 2880450054404325666}
   - component: {fileID: 951856638404512482}
+  - component: {fileID: 3461691532219828675}
   - component: {fileID: 2699785098557180643}
   - component: {fileID: 665475911047514720}
   m_Layer: 0
@@ -124,6 +125,24 @@ MonoBehaviour:
   currentRoom: 0
   scare: {fileID: 0}
   heartbeat: {fileID: 0}
+  clock: {fileID: 3461691532219828675}
+  flashingRed: {fileID: 0}
+--- !u!114 &3461691532219828675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341351362366470202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaae46d0dc6e1824e8537768a6643ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerIsRunning: 0
+  transition: {fileID: 0}
+  newRoom: 2
+  transitionTime: 1
 --- !u!82 &2699785098557180643
 AudioSource:
   m_ObjectHideFlags: 0

@@ -547,7 +547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startButton: {fileID: 738824753}
   transition: {fileID: 512180884}
-  newRoom: 0
+  newRoom: 3
   transitionTime: 1
 --- !u!114 &738824753
 MonoBehaviour:

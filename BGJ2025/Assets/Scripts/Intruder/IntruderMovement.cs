@@ -2,11 +2,14 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+
 public class IntruderMovement : MonoBehaviour {
     public string intruderName;
     public int movementLevel = 10;
     private float moveTimer = 2f;
     public bool horror = false;
+
+
 
     void Awake() {
         if (!PlayerPrefs.HasKey("HorrorMode")) {
@@ -52,6 +55,7 @@ public class IntruderMovement : MonoBehaviour {
         // Update the intruder's location
         IntruderManager.Instance.UpdateIntruderLocation(intruderName, newLocation);
         Debug.Log($"{intruderName} moved to room {newLocation}");
+
     }
 
     public void EnableHorrorMode() {
