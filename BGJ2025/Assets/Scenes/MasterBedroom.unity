@@ -1314,6 +1314,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c58a1b8db5a93144b482296fb943086, type: 3}
+--- !u!114 &1815131468 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 334486239239839835, guid: 5c58a1b8db5a93144b482296fb943086, type: 3}
+  m_PrefabInstance: {fileID: 1815131467}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c99ee5ca3af33f4bbb43c8afd6515c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1857210786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,6 +1582,14 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 951856638404512482, guid: 403d1bb0cceaa154090844fb236f2d69, type: 3}
+      propertyPath: flashingRed
+      value: 
+      objectReference: {fileID: 1815131468}
+    - target: {fileID: 3461691532219828675, guid: 403d1bb0cceaa154090844fb236f2d69, type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 881559465}
     - target: {fileID: 6341351362366470202, guid: 403d1bb0cceaa154090844fb236f2d69, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -1795,7 +1814,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7403172701937515343, guid: 90b0a82ca03dc1240a363b90418b5768, type: 3}
       propertyPath: newRoom
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7403172701937515343, guid: 90b0a82ca03dc1240a363b90418b5768, type: 3}
       propertyPath: transition

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intruderName: Crush
-  movementLevel: 15
+  movementLevel: 10
   horror: 0
 --- !u!212 &5701780073181512852
 SpriteRenderer:

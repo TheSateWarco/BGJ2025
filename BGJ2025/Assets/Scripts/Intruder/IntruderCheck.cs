@@ -6,10 +6,14 @@ public class IntruderCheck : MonoBehaviour {
     private AudioSource audioSource;
     public AudioClip scare; // The scare sound effect
     public AudioClip heartbeat;
+    public Clock clock;
+    public FlashingRed flashingRed;
 
     void Start() {
         currentRoom = SceneManager.GetActiveScene().buildIndex;
         audioSource = GetComponent<AudioSource>();
+        clock = GetComponent<Clock>();
+        flashingRed = Object.FindFirstObjectByType<FlashingRed>();
 
         // Load the sound file from Resources
         scare = Resources.Load<AudioClip>("Audio/scare");
@@ -28,7 +32,6 @@ public class IntruderCheck : MonoBehaviour {
         foreach (var intruder in IntruderManager.Instance.intruderLocations) {
             if (intruder.Value == currentRoom) {
                 Debug.Log($"{intruder.Key} is in the same room! Game Over?");
-
                 // Find the intruder GameObject
                 GameObject intruderObject = GameObject.Find(intruder.Key);
                 if (intruderObject == null) {
@@ -48,6 +51,8 @@ public class IntruderCheck : MonoBehaviour {
                 if (audioSource != null && scare != null) {
                     audioSource.PlayOneShot(scare); 
                     audioSource.PlayOneShot(heartbeat);
+                    clock.StartTimer();
+                    flashingRed.StartFlash();
                     Debug.Log("Scare sound playing!");
                 } else {
                     Debug.LogError("AudioSource or AudioClip is missing!");

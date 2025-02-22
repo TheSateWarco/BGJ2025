@@ -3,7 +3,10 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+#if UNITY_EDITOR
 using UnityEditorInternal;
+#endif
+
 using UnityEngine.Audio;
 
 public class ChangeRooms : MonoBehaviour

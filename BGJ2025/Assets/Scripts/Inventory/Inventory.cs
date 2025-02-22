@@ -182,9 +182,9 @@ public class Inventory : MonoBehaviour {
                 UnlockDoor unlockDoor = Object.FindFirstObjectByType<UnlockDoor>();
                 buttonObject.onClick.AddListener(unlockDoor.OpenDoor);
                 break;
-            case "block":
-                Debug.Log("Adding Block Action to button!");
-                buttonObject.onClick.AddListener(() => Debug.Log("Block used!"));
+            case "Flashlight":
+                Debug.Log("You got a flashlight :)");
+                buttonObject.onClick.AddListener(() => Debug.Log("flashlight used!"));
                 break;
         }
 
