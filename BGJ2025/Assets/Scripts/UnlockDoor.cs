@@ -1,9 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using UnityEditorInternal;
 
 public class UnlockDoor : MonoBehaviour {
     public string doorID; // Unique identifier for each door
     public bool isLocked = true;
     public GameObject door;
+    [SerializeField] private Animator transition;
+    public int newRoom;
+    [SerializeField] private float transitionTime = 1f;
 
     void Start() {
         if (door != null) {
@@ -27,12 +35,31 @@ public class UnlockDoor : MonoBehaviour {
             return; //  STOP if locked
         }
 
+
         Debug.Log(" Door is unlocked! Transition allowed.");
         //  Your transition code runs only if unlocked
+        StartCoroutine(LoadRoom(newRoom));
+        GameObject inventoryCanvas = GameObject.Find("InventoryCanvas");
+        if (inventoryCanvas != null) {
+            inventoryCanvas.SetActive(false);
+        }
     }
 
 
-    public void Unlock() {
+
+    IEnumerator LoadRoom(int roomIndex) {
+
+        // play animation
+        transition.SetTrigger("Start");
+        // wait for aniumation"
+        yield return new WaitForSeconds(transitionTime);
+        // load scene
+        SceneManager.LoadScene(roomIndex);
+    }
+
+
+
+public void Unlock() {
         if (!isLocked) return; // Stop if already unlocked
 
         isLocked = false;
