@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Flashlight
   m_EditorClassIdentifier: 
   itemName: Flashlight
-  itemIcon: {fileID: 21300000, guid: 2d91f5616c73b454fadb246aa1e2f649, type: 3}
-  itemID: 7d74bf90-5e19-4250-9472-d56ed70ef4ca
+  itemIcon: {fileID: 21300000, guid: ad28abee2ecb8e5459094a0811d52be9, type: 3}
+  itemID: c690c7a1-ec64-4170-a4b6-b19ccd61e4d9

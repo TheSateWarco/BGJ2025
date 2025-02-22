@@ -177,13 +177,17 @@ public class Inventory : MonoBehaviour {
         buttonObject.onClick.AddListener(() => Debug.Log("Block used!"));
         // Assign a new action based on the item
         switch (item.itemName) {
-            case "testKey":
+            case "Key":
                 Debug.Log("Adding OpenDoor to button!");
                 UnlockDoor unlockDoor = Object.FindFirstObjectByType<UnlockDoor>();
                 buttonObject.onClick.AddListener(unlockDoor.OpenDoor);
                 break;
-            case "Flashlight":
+            case "block":
                 Debug.Log("You got a flashlight :)");
+                buttonObject.onClick.AddListener(() => Debug.Log("flashlight used!"));
+                break;
+            case "Flashlight":
+                Debug.Log("You got ahhh :)");
                 buttonObject.onClick.AddListener(() => Debug.Log("flashlight used!"));
                 break;
         }

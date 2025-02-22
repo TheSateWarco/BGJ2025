@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-[CreateAssetMenu(fileName = "NewItem", menuName = "Inventory/Item")]
+[CreateAssetMenu(fileName = "NewItem", menuName = "InventoryStuff/Item")]
 public class InventoryItem : ScriptableObject {
     public string itemName;
     public Sprite itemIcon;
@@ -14,6 +14,7 @@ public class InventoryItem : ScriptableObject {
         if (string.IsNullOrEmpty(itemID)) {
             itemID = Guid.NewGuid().ToString(); // Creates a unique identifier
         }
+
     }
 
     public virtual void Use() {
