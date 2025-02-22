@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: block 1
   m_EditorClassIdentifier: 
   itemName: block
-  itemIcon: {fileID: 21300000, guid: 0ced32de8ec68f047ae3bd087d261d6b, type: 3}
-  quantity: 1
+  itemIcon: {fileID: 21300000, guid: 2d91f5616c73b454fadb246aa1e2f649, type: 3}
+  itemID: 650a0ddc-e73f-4959-b18b-318dc3b3f8b5

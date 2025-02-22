@@ -5,6 +5,14 @@ public class ItemPickup : MonoBehaviour {
     public InventoryItem itemData;
 
     void Start() {
+        if (itemData == null) {
+            Debug.LogError("itemData is null! Make sure it is assigned properly.");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(itemData.itemID)) {
+            Debug.Log("itemID is empty or null.");
+        }
         if (string.IsNullOrEmpty(itemData.itemID)) {
             itemData.itemID = Guid.NewGuid().ToString(); //  Ensure unique ID at runtime
         }
