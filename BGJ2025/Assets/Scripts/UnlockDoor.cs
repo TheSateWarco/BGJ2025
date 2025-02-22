@@ -7,17 +7,14 @@ public class Door : MonoBehaviour {
 
     void Start() {
         if (door != null) {
-            ChangeRooms changeRooms = door.GetComponent<ChangeRooms>();
-            if (changeRooms != null) {
-                changeRooms.enabled = false;  //  Ensure it's disabled at the start
                 Debug.Log("ChangeRooms disabled at start for: " + door.name);
-            }
+            
         }
 
-            if (isLocked) {
+            /*if (isLocked) {
                 Collider col = GetComponent<Collider>();
                 if (col != null) col.enabled = false;  // Disable collider so clicks don’t register
-            }
+            }*/
         }
     
 
@@ -43,18 +40,13 @@ public class Door : MonoBehaviour {
 
         if (door != null) {
             if (door != null) {
-                Collider col = GetComponent<Collider>();
-                if (col != null) col.enabled = true;
+                //Collider col = GetComponent<Collider>();
+                //if (col != null) col.enabled = true;
             }
-                ChangeRooms changeRooms = door.GetComponent<ChangeRooms>();
-            if (changeRooms != null) {
-                changeRooms.enabled = true;  //  Enable transition now
-                Debug.Log("Transition script enabled for: " + door.name);
             }
         }
     }
 
-}
 
 
 

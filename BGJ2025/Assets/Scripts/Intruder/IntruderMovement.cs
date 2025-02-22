@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class IntruderMovement : MonoBehaviour {
     public string intruderName;
-    public int movementLevel = 15;
-    private float moveTimer = 2f;
+    public int movementLevel = 10;
+    private float moveTimer = 3f;
     public bool horror = false;
 
     void Awake() {
