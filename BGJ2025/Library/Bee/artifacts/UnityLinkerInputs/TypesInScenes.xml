@@ -1,9 +1,10 @@
 <linker>
 	<assembly fullname="Assembly-CSharp">
 		<type fullname="ActivateButton" preserve="nothing"/>
-		<type fullname="Block" preserve="nothing"/>
+		<type fullname="ButtonClick" preserve="nothing"/>
 		<type fullname="ChangeRooms" preserve="nothing"/>
 		<type fullname="Clock" preserve="nothing"/>
+		<type fullname="CutScene" preserve="nothing"/>
 		<type fullname="FlashingRed" preserve="nothing"/>
 		<type fullname="HoverExit" preserve="nothing"/>
 		<type fullname="HoverManager" preserve="nothing"/>
@@ -18,6 +19,7 @@
 		<type fullname="ItemSpawnManager" preserve="nothing"/>
 		<type fullname="ItemSpawnPoint" preserve="nothing"/>
 		<type fullname="KeyItem" preserve="nothing"/>
+		<type fullname="KeySpawn" preserve="nothing"/>
 		<type fullname="LookAround" preserve="nothing"/>
 		<type fullname="SpriteToggle" preserve="nothing"/>
 		<type fullname="StartButton" preserve="nothing"/>
@@ -50,12 +52,10 @@
 		<type fullname="UnityEngine.AudioListener" preserve="nothing"/>
 		<type fullname="UnityEngine.AudioSource" preserve="nothing"/>
 		<type fullname="UnityEngine.Behaviour" preserve="nothing"/>
-		<type fullname="UnityEngine.BoxCollider" preserve="nothing"/>
 		<type fullname="UnityEngine.Camera" preserve="nothing"/>
 		<type fullname="UnityEngine.Canvas" preserve="nothing"/>
 		<type fullname="UnityEngine.CanvasGroup" preserve="nothing"/>
 		<type fullname="UnityEngine.CanvasRenderer" preserve="nothing"/>
-		<type fullname="UnityEngine.CapsuleCollider" preserve="nothing"/>
 		<type fullname="UnityEngine.Collider" preserve="nothing"/>
 		<type fullname="UnityEngine.Component" preserve="nothing"/>
 		<type fullname="UnityEngine.Cubemap" preserve="nothing"/>

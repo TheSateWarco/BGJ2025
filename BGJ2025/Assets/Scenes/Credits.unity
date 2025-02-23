@@ -517,17 +517,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Team: Sage, Marshel, Ryan, Larissa
+  m_text: 'Team: Sage, Lotus, Ryan
 
 
     Free Assets:
 
     pixabay.com
 
-    -
-    freesound_community
+    - freesound_community
 
-    - Soul_Serenity_Ambience
+    -
+    Soul_Serenity_Ambience
 
     ChatGPT'
   m_isRightToLeft: 0
