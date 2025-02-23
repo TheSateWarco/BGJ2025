@@ -3,6 +3,7 @@ using UnityEngine;
 public class StartHorror : MonoBehaviour
 {
     private IntruderMovement[] intruders;
+    public CutScene cutScene;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class StartHorror : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Clicked on: " + gameObject.name);
+        cutScene.StartCutScene();
 
         if (intruders.Length == 0)
         {

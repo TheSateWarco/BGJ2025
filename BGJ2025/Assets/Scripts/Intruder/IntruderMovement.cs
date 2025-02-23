@@ -42,7 +42,7 @@ public class IntruderMovement : MonoBehaviour {
         int attempts = 10; // Prevent infinite loops
 
         do {
-            newLocation = Random.Range(0, 6); // Pick a random room
+            newLocation = Random.Range(3, 9); // Pick a random room
             attempts--;
         } while (occupiedRooms.Contains(newLocation) && attempts > 0); // Ensure it's unoccupied
 
