@@ -404,7 +404,6 @@
 "Assets/Scripts/ChangeRooms.cs"
 "Assets/Scripts/Clock.cs"
 "Assets/Scripts/CutScene.cs"
-"Assets/Scripts/EndDoor.cs"
 "Assets/Scripts/FlashingRed.cs"
 "Assets/Scripts/HoverExit.cs"
 "Assets/Scripts/HoverManager.cs"

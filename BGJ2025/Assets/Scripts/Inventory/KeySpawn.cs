@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Block : MonoBehaviour {
+public class KeySpawn: MonoBehaviour {
     public GameObject itemPrefab; // Assign in Inspector
     [SerializeField] private int roomIndex;
 

@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using TMPro;
+using static System.Net.Mime.MediaTypeNames;
+
 
 
 public class UnlockDoor : MonoBehaviour {
@@ -12,8 +15,25 @@ public class UnlockDoor : MonoBehaviour {
     [SerializeField] private Animator transition;
     public int newRoom;
     [SerializeField] private float transitionTime = 1f;
+    private TextMeshProUGUI uiText;
+    private HoverManager hoverManager;
 
     void Start() {
+        GameObject textBox = GameObject.Find("TextBox");
+        hoverManager = FindFirstObjectByType<HoverManager>();
+        if (textBox != null) {
+            uiText = textBox.GetComponentInChildren<TextMeshProUGUI>();
+            if (uiText != null) {
+                uiText.text = "";
+            } else {
+                Debug.LogError("TextMeshProUGUI not found inside 'TextBox'!");
+            }
+        } else {
+            Debug.LogError("TextBox not found in the scene!");
+        } 
+        if (uiText == null) {
+            Debug.LogError("TextMeshProUGUI not found! Make sure it's inside 'BottomTextImage'.");
+        }
         if (door != null) {
                 Debug.Log("ChangeRooms disabled at start for: " + door.name);
             
@@ -32,11 +52,13 @@ public class UnlockDoor : MonoBehaviour {
 
         if (door != null && door.isLocked) {
             Debug.Log(" The door is locked! Transition blocked. Door Locked Status: " + door.isLocked);
-            return; //  STOP if locked
+            if (uiText != null) uiText.text = "The door is locked";
+            return;
         }
 
 
         Debug.Log(" Door is unlocked! Transition allowed.");
+        
         //  Your transition code runs only if unlocked
         StartCoroutine(LoadRoom(newRoom));
         GameObject inventoryCanvas = GameObject.Find("InventoryCanvas");
@@ -69,13 +91,13 @@ public void Unlock() {
         // OPTIONAL: Change the door color to indicate it's unlocked
         Renderer doorRenderer = GetComponent<Renderer>();
         if (doorRenderer != null) {
-            doorRenderer.material.color = Color.green;  // Change door color to green
+            doorRenderer.material.color = Color.white;  // Change door color to green
 
         }
     }
     public void OpenDoor() {
         Debug.Log("Key " + doorID + " is being used!");
-
+        if (uiText != null) uiText.text = "The door is unlocked";
         UnlockDoor[] doors = FindObjectsByType<UnlockDoor>(FindObjectsSortMode.None);
         foreach (UnlockDoor door in doors) {
             if (door.doorID == doorID) {
@@ -92,7 +114,15 @@ public void Unlock() {
 
         Debug.Log("No matching door found for key: " + doorID);
     }
+
+    void OnMouseEnter() {
+        hoverManager.ShowHoverText(transform, gameObject.name);
     }
+
+    void OnMouseExit() {
+        hoverManager.HideHoverText();
+    }
+}
 
 
 
