@@ -41,5 +41,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/MasterBathroom.unity
     guid: 5b2a7fb3327ac934ba98515f41aa7e9f
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 3770518cc8ff7ad43b2b85a135077f8d
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

@@ -16,6 +16,7 @@ public class ChangeRooms : MonoBehaviour
     [SerializeField] private float transitionTime = 1f;
     public AudioClip doorSqueak;
     private AudioSource audioSource;
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     void Start() {
@@ -26,6 +27,7 @@ public class ChangeRooms : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         doorSqueak = Resources.Load<AudioClip>("Audio/doorSqueak");
         
+
     }
     void OnMouseDown() {
         Debug.Log("ChangeRooms script status: " + this.enabled);
@@ -33,8 +35,10 @@ public class ChangeRooms : MonoBehaviour
             audioSource.PlayOneShot(doorSqueak);
         }
         Debug.Log("Clicked on: " + gameObject.name);
-        StartCoroutine(LoadRoom(newRoom)); ;
+        StartCoroutine(LoadRoom(newRoom)); 
     }
+
+
 
 
 
