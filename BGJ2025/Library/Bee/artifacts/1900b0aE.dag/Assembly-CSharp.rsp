@@ -402,6 +402,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.38f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/ChangeRooms.cs"
 "Assets/Scripts/Clock.cs"
+"Assets/Scripts/CutScene.cs"
 "Assets/Scripts/EndDoor.cs"
 "Assets/Scripts/FlashingRed.cs"
 "Assets/Scripts/HoverExit.cs"
